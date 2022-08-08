@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import api from '../services/api'
+import axios from 'axios'
 
 export default function Forms() {
   const {
@@ -8,14 +10,17 @@ export default function Forms() {
     formState: { errors }
   } = useForm()
 
-  const [data, setData] = useState([])
-
   const onSubmit = data => {
-    console.log(data)
-    setData(data)
+    let inputData = {
+      inputNumber: parseInt(data.inputNumber)
+    }
+
+    api.post('calculus/', inputData).then(res => {
+      console.log(res.data.result)
+    })
   }
 
-  console.log('renderizou')
+  // console.log(input)
 
   return (
     <div className=" bg-white text-black rounded-sm mx-32 p-4">
@@ -27,7 +32,10 @@ export default function Forms() {
           Adicione o valor a ser conferido
         </label>
         <input
-          {...register('inputNumber', { pattern: /^[0-9]*$/, required: true })}
+          {...register('inputNumber', {
+            pattern: /^[0-9]*$/,
+            required: true
+          })}
           type="text"
           id="inputNumber"
           placeholder="Digite o valor a ser conferido"
