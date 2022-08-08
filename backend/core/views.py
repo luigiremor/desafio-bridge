@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from .logic import count_same_divisors
+from django.http import JsonResponse
 
-# Create your views here.
+class DivisorsView(APIView):
+    def post(self, request):
+        data = request.data.get('inputNumber')
+        return JsonResponse({'result': count_same_divisors(data)})
