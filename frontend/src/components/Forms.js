@@ -10,17 +10,38 @@ export default function Forms() {
     formState: { errors }
   } = useForm()
 
+  const [output, setOutput] = useState([])
+  const [result, setResult] = useState('')
+  const [end, setEnd] = useState('')
+  const [start, setStart] = useState('')
+
   const onSubmit = data => {
     let inputData = {
       inputNumber: parseInt(data.inputNumber)
     }
-
+    const start = Date.now()
     api.post('calculus/', inputData).then(res => {
-      console.log(res.data.result)
+      // console.log(res.data.result)
+      setResult(res.data.result)
+      setEnd(Date.now())
+      // console.log((end - start) / 1000)
+      setOutput(output.concat(result))
+      console.log(output)
     })
+
+    // concat output array with result
+
+    // setOutput(output => [
+    //   ...output,
+    //   {
+    //     inputNumber: inputData.inputNumber,
+    //     result: result,
+    //     time: (end - start) / 1000
+    //   }
+    // ])
   }
 
-  // console.log(input)
+  console.log(output)
 
   return (
     <div className=" bg-white text-black rounded-sm mx-32 p-4">
