@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import api from '../services/api'
-import axios from 'axios'
 
 export default function Forms() {
   const {
@@ -34,7 +33,10 @@ export default function Forms() {
         <input
           {...register('number', {
             pattern: /^[0-9]*$/,
-            required: true
+            required: true,
+            min: {
+              value: 1
+            }
           })}
           type="text"
           id="number"
@@ -46,7 +48,7 @@ export default function Forms() {
         />
         {errors.number && (
           <p className="text-red-500">
-            O valor deve ser um número inteiro positivo
+            O valor deve ser um número inteiro positivo maior que 1
           </p>
         )}
 
