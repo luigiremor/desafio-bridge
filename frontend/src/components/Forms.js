@@ -29,16 +29,15 @@ export default function Forms() {
 
   return (
     <div className="flex flex-col mx-8  lg:mx-96 gap-4 bg-zinc-800 h-full">
-      <div className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4 font-semibold">
+      <div className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4">
+        <p>Olá, tudo bem?</p>
         <p>
-          Olá, tudo bem?
-          <br />
-          <br />
           Me chamo Luigi e esse é o meu desafio do processo seletivo do
           laboratório bridge
           <span className="text-blue-500">_</span>!
           <br />
-          <br />
+        </p>
+        <p className="font-semibold">
           Para testar a aplicação insira um número inteiro k, assim será
           calculado o número de inteiros positivos n menores que k, para os
           quais n e n + 1 têm o mesmo número de divisores positivos.
@@ -78,7 +77,7 @@ export default function Forms() {
           onClick={handleSubmit(onSubmit)}
           className="bg-blue-600 rounded-md p-2  text-white hover:bg-blue-800"
         >
-          Confirmar
+          Calcular
         </button>
       </form>
       {result.result != null ? (
