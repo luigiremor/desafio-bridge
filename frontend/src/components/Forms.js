@@ -10,44 +10,23 @@ export default function Forms() {
     formState: { errors }
   } = useForm()
 
-  const [output, setOutput] = useState([])
-  const [result, setResult] = useState('')
-  const [end, setEnd] = useState('')
-  const [start, setStart] = useState('')
+  const [result, setResult] = useState([])
 
   const onSubmit = data => {
+    const start = Date.now()
     let inputData = {
       inputNumber: parseInt(data.inputNumber)
     }
-    const start = Date.now()
     api.post('calculus/', inputData).then(res => {
-      // console.log(res.data.result)
-      setResult(res.data.result)
-      setEnd(Date.now())
-      // console.log((end - start) / 1000)
-      setOutput(output.concat(result))
-      console.log(output)
+      setResult({ result: res.data.result, time: (Date.now() - start) / 1000 })
     })
-
-    // concat output array with result
-
-    // setOutput(output => [
-    //   ...output,
-    //   {
-    //     inputNumber: inputData.inputNumber,
-    //     result: result,
-    //     time: (end - start) / 1000
-    //   }
-    // ])
   }
 
-  console.log(output)
-
   return (
-    <div className=" bg-white text-black rounded-sm mx-32 p-4">
+    <div className="flex flex-col mx-24  lg:mx-96 gap-4">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-2 justify-start "
+        className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4"
       >
         <label htmlFor="inputNumber" className="font-semibold">
           Adicione o valor a ser conferido
@@ -78,6 +57,22 @@ export default function Forms() {
           Confirmar
         </button>
       </form>
+      {result.result ? (
+        <div className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4 ">
+          <p>
+            <span className="font-semibold">Número de casos:</span>{' '}
+            {result.result} {result.result === 1 ? 'caso' : 'casos'}
+          </p>
+          <p>
+            <span className="font-semibold">Tempo de resposta:</span>{' '}
+            {result.time} segundos
+          </p>
+        </div>
+      ) : (
+        <div className="text-center">
+          <p>Nenhum resultado calculado</p>
+        </div>
+      )}
     </div>
   )
 }
