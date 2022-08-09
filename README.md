@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Getting started with the application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hello, my name is Luigi!
 
-## Available Scripts
+This is my repository for the Bridge's challenge.
 
-In the project directory, you can run:
+Follow the instructions below to get started.
 
-### `npm start`
+# Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Frontend dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### React
 
-### `npm test`
+React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Axios
 
-### `npm run build`
+Axios is used for making requests to the backend. Their documentation can be found [here](https://axios-http.com/ptbr/docs/intro).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### react-hook-form
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+react-hook-form is used to create better perfoming forms with easy-to-use validation. Their documentation can be found [here](https://react-hook-form.com/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### TailwindCSS
 
-### `npm run eject`
+TailwindCSS is a CSS framework that is used to style the application and make it responsive. Its documentation can be found [here](https://tailwindcss.com/docs/installation).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Backend dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Django
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Django is a high-level Python Web framework that is used to build web applications. Its documentation can be found [here](https://docs.djangoproject.com/pt-br/4.1/).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Django Rest Framework
 
-## Learn More
+Django Rest Framework is a framework that is used to create RESTful APIs. Its documentation can be found [here](https://www.django-rest-framework.org/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Instructions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Frontend Installation
 
-### Code Splitting
+To install the frontend dependencies, run the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd frontend
+npm install
+```
 
-### Analyzing the Bundle Size
+## Backend Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To install the backend dependencies, run the following command:
 
-### Making a Progressive Web App
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Running the frontend
 
-### Advanced Configuration
+With the frontend dependencies installed, you can run the application by running the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+cd frontend
+npm run start
+```
 
-### Deployment
+## Running the backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+With the environment activated and the backend dependencies installed, you can run the application by running the following command:
 
-### `npm run build` fails to minify
+```bash
+cd backend
+python3 manage.py runserver
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# License
+
+This project is licensed under the MIT License. I hope you enjoy it!
+
+Copyright (c) 2020 [Luigi Remor](github.com/luigiremor)
