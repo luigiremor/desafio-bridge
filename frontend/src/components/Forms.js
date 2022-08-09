@@ -15,7 +15,7 @@ export default function Forms() {
   const onSubmit = data => {
     const start = Date.now()
     let inputData = {
-      inputNumber: parseInt(data.inputNumber)
+      number: parseInt(data.number)
     }
     api.post('calculus/', inputData).then(res => {
       setResult({ result: res.data.result, time: (Date.now() - start) / 1000 })
@@ -28,23 +28,23 @@ export default function Forms() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4"
       >
-        <label htmlFor="inputNumber" className="font-semibold">
+        <label htmlFor="number" className="font-semibold">
           Adicione o valor a ser conferido
         </label>
         <input
-          {...register('inputNumber', {
+          {...register('number', {
             pattern: /^[0-9]*$/,
             required: true
           })}
           type="text"
-          id="inputNumber"
+          id="number"
           placeholder="Digite o valor a ser conferido"
           className="bg-white text-black rounded-sm p-2 outline-blue-500 border"
-          {...(errors.inputNumber && {
+          {...(errors.number && {
             className: '  p-2 rounded-sm outline-red-500 border border-red-500'
           })}
         />
-        {errors.inputNumber && (
+        {errors.number && (
           <p className="text-red-500">
             O valor deve ser um número inteiro positivo
           </p>
