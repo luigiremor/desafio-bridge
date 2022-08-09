@@ -25,8 +25,6 @@ export default function Forms() {
     })
   }
 
-  console.log(errors)
-
   return (
     <div className="flex flex-col mx-8  lg:mx-96 gap-4 bg-zinc-800 h-full">
       <div className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4">
