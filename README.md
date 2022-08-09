@@ -80,4 +80,4 @@ python3 manage.py runserver
 
 This project is licensed under the MIT License. I hope you enjoy it!
 
-Copyright (c) 2020 [Luigi Remor](github.com/luigiremor)
+Copyright (c) 2022 [Luigi Remor](github.com/luigiremor)
