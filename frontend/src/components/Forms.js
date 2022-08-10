@@ -9,7 +9,7 @@ export default function Forms() {
     formState: { errors }
   } = useForm()
 
-  const [result, setResult] = useState([])
+  const [output, setOutput] = useState([])
 
   const onSubmit = data => {
     const start = Date.now()
@@ -17,7 +17,7 @@ export default function Forms() {
       number: parseInt(data.number)
     }
     api.post('calculus/', inputData).then(res => {
-      setResult({
+      setOutput({
         number: parseInt(data.number),
         result: res.data.result,
         time: (Date.now() - start) / 1000
@@ -78,19 +78,19 @@ export default function Forms() {
           Calcular
         </button>
       </form>
-      {result.result != null ? (
+      {output.result != null ? (
         <div className="flex flex-col gap-2 justify-start bg-white text-black rounded-sm p-4">
           <p>
             <span className="font-semibold">Valor conferido:</span>{' '}
-            {result.number}
+            {output.number}
           </p>
           <p>
             <span className="font-semibold">Número de casos:</span>{' '}
-            {result.result} {result.result === 1 ? 'caso' : 'casos'}
+            {output.result} {output.result === 1 ? 'caso' : 'casos'}
           </p>
           <p>
             <span className="font-semibold">Tempo de resposta:</span>{' '}
-            {result.time} segundos
+            {output.time} segundos
           </p>
         </div>
       ) : (
